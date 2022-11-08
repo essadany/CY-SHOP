@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.ecommerce.metier.Wishlist">
+        <table name="wishlist" schema="commerce" catalog=""/>
+        <attributes>
+            <id name="idw">
+                <column name="idw"/>
+            </id>
+            <basic name="idc">
+                <column name="idc"/>
+            </basic>
+            <basic name="libelle">
+                <column name="libelle"/>
+            </basic>
+            <many-to-one name="clientByIdc" optional="true" target-entity="com.ecommerce.metier.Client">
+                <join-column name="idc" nullable="false" referenced-column-name="idc"/>
+            </many-to-one>
+            <one-to-many name="itemwishlistsByIdw" mapped-by="wishlistByIdw"
+                         target-entity="com.ecommerce.metier.Itemwishlist"/>
+        </attributes>
+    </entity>
+</entity-mappings>

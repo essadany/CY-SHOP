@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory name="">
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/commerce</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <mapping class="com.ecommerce.metier.Produit" resource="Produit.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Categorie" resource="Categorie.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Commande" resource="Commande.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Client" resource="Client.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Lignecommande" resource="Lignecommande.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Adresse" resource="Adresse.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Wishlist" resource="Wishlist.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Compte" resource="Compte.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Image" resource="Image.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Commentaire" resource="Commentaire.xml"></mapping>
+  </session-factory>
+</hibernate-configuration>
