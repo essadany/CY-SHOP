@@ -16,6 +16,7 @@
         <mapping-file>Wishlist.xml</mapping-file>
 
 
+
         <class>com.ecommerce.metier.Adresse</class>
         <class>com.ecommerce.metier.Categorie</class>
         <class>com.ecommerce.metier.Client</class>

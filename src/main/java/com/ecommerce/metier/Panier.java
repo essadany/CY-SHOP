@@ -7,14 +7,20 @@ import java.util.ArrayList;
 
 public class Panier {
     private ArrayList<LignePanier> items=new ArrayList<LignePanier>();
+    private int idc;
 
     public ArrayList<LignePanier> getItems() {
         return items;
     }
+    public Panier(){
+        super();
+    }
+
 
     public void setItems(ArrayList<LignePanier> items) {
         this.items = items;
     }
+
 
 
     public void addItem(int idp,int qte){
@@ -35,12 +41,17 @@ public class Panier {
     }
 
     public void augmenterQte(int idp) {
-        for(LignePanier lp:items){
-            if(lp.getProduit().getIdP()==idp){
-                lp.setQte(lp.getQte()+1);
 
-                break;
+        for(LignePanier lp:items){
+            while (lp.getQte()<lp.getProduit().getQtestck()){
+                if(lp.getProduit().getIdP()==idp ){
+                    lp.setQte(lp.getQte()+1);
+                    //lp.getProduit().setQtestck(lp.getProduit().getQtestck()-1);
+
+                    break;
+                }
             }
+
         }
     }
     public void dimunierQte(int idp) {

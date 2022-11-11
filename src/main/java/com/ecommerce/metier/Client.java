@@ -3,6 +3,8 @@ package com.ecommerce.metier;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Client {
@@ -15,24 +17,26 @@ public class Client {
     private String login;
     private Collection<Adresse> adressesByIdc;
     private Compte compteByLogin;
-    private Collection<Commande> commandesByIdc;
-    private Collection<Wishlist> wishlistsByIdc;
+    private Set<Commande> commandesByIdc = new HashSet<Commande>(0);
+    private Set<Wishlist> wishlistsByIdc = new HashSet<Wishlist>(0);
 
     public Client(){
         super();
     }
-    public Client(int idc, String nom, String prenom, String email, String tel, Date regDate, String login, Collection<Adresse> adressesByIdc, Compte compteByLogin, Collection<Commande> commandesByIdc, Collection<Wishlist> wishlistsByIdc) {
+    public Client(int idc) {
         this.idc = idc;
+    }
+    public Client(int idc, Compte compte, String nom, String prenom, String email, String tel, Date regdate, Set<Wishlist> wishlists, Set<Adresse> adresses, Set<Commande> commandes) {
+        this.idc = idc;
+        this.compteByLogin = compte;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.tel = tel;
-        this.regDate = regDate;
-        this.login = login;
-        this.adressesByIdc = adressesByIdc;
-        this.compteByLogin = compteByLogin;
-        this.commandesByIdc = commandesByIdc;
-        this.wishlistsByIdc = wishlistsByIdc;
+        this.regDate = regdate;
+        this.wishlistsByIdc = wishlists;
+        this.adressesByIdc = adresses;
+        this.commandesByIdc = commandes;
     }
 
     @Id
@@ -147,20 +151,20 @@ public class Client {
     }
 
     @OneToMany(mappedBy = "clientByIdc")
-    public Collection<Commande> getCommandesByIdc() {
+    public Set<Commande> getCommandesByIdc() {
         return commandesByIdc;
     }
 
-    public void setCommandesByIdc(Collection<Commande> commandesByIdc) {
+    public void setCommandesByIdc(Set<Commande> commandesByIdc) {
         this.commandesByIdc = commandesByIdc;
     }
 
     @OneToMany(mappedBy = "clientByIdc")
-    public Collection<Wishlist> getWishlistsByIdc() {
+    public Set<Wishlist> getWishlistsByIdc() {
         return wishlistsByIdc;
     }
 
-    public void setWishlistsByIdc(Collection<Wishlist> wishlistsByIdc) {
+    public void setWishlistsByIdc(Set<Wishlist> wishlistsByIdc) {
         this.wishlistsByIdc = wishlistsByIdc;
     }
 }

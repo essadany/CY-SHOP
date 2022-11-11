@@ -21,6 +21,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="default" value="51b411cb-59b3-4cd9-8aa3-184b4ca75c4e" />
+          <factory-entry name="noname-a.xml@0" value="51b411cb-59b3-4cd9-8aa3-184b4ca75c4e" />
         </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
@@ -29,6 +30,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
+          <unit-entry name="a.xml" value="51b411cb-59b3-4cd9-8aa3-184b4ca75c4e" />
           <unit-entry name="noname-hibernate.cfg.xml@227" value="51b411cb-59b3-4cd9-8aa3-184b4ca75c4e" />
         </datasource-map>
         <naming-strategy-map />

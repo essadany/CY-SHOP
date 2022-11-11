@@ -4,13 +4,14 @@ public class LignePanier {
     private Produit produit;
     private int qte;
 
-    public LignePanier(Produit produit, int qte) {
-        this.produit = produit;
-        this.qte = qte;
-    }
 
     public LignePanier() {
         super();
+    }
+
+    public LignePanier(Produit pr, int qte) {
+        this.produit=pr;
+        this.qte=qte;
     }
 
     public Produit getProduit() {
@@ -28,4 +29,5 @@ public class LignePanier {
     public void setQte(int qte) {
         this.qte = qte;
     }
+
 }

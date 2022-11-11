@@ -22,7 +22,7 @@
         <%
             if(session.getAttribute("panier")==null){
         %>
-        <h2>Votre panier est en core vide</h2>
+        <h2>Votre panier est encore vide</h2>
         <%
         }else{
             Panier panier=(Panier)session.getAttribute("panier");

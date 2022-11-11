@@ -65,7 +65,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="logo pull-left">
-						<a href="/CY_SHOP_war_exploded/index.html"><img src="/CY_SHOP_war_exploded/images/home/logo.png" alt="" /></a>
+						<a href="/CY_SHOP_war_exploded/index.jsp"><img src="/CY_SHOP_war_exploded/images/home/logo.png" alt="" /></a>
 					</div>
 					<div class="btn-group pull-right">
 						<div class="btn-group">
@@ -127,7 +127,7 @@
 					</div>
 					<div class="mainmenu pull-left">
 						<ul class="nav navbar-nav collapse navbar-collapse">
-							<li><a href="/CY_SHOP_war_exploded/index.html" class="active">Home</a></li>
+							<li><a href="/CY_SHOP_war_exploded/index.jsp" class="active">Home</a></li>
 							<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
 								<ul role="menu" class="sub-menu">
 									<li><a href="/CY_SHOP_war_exploded/shop.html">Products</a></li>

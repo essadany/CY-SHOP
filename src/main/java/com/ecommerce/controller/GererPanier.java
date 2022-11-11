@@ -1,7 +1,10 @@
 package com.ecommerce.controller;
 
+import com.ecommerce.dao.HibernateUtil;
 import com.ecommerce.metier.Panier;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;

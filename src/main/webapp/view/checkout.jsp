@@ -32,7 +32,7 @@
             <h2 class="heading">Step1</h2>
         </div>
 
-        <form action="/CY_SHOP_war_exploded/view/paiement.jsp" method="post">
+        <form action="paiement.jsp" method="post">
 
 
             <div class="shopper-informations">

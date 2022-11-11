@@ -73,16 +73,18 @@ public class Inscription extends HttpServlet {
         String email=request.getParameter("email");
         String mdp=request.getParameter("mdp");
         HibernateUtil.beginTransaction();
-        EntityManager s= HibernateUtil.getEntityManager();
+        EntityManager em = HibernateUtil.beginTransaction();
+        //Session s=HibernateSession.getSession();
         Compte cpt=new Compte(email, mdp, "client", null, null, null, null);
-        Client clt=new Client(0, nom, prenom, email, null, new Date(),null, null, cpt,null,null);
+        Client clt=new Client(0, cpt , nom, prenom, email, null,  new Date(),null, null, null);
 
-        s.persist(clt);
-        s.persist(clt);
-        HibernateUtil.commitTransaction(s);
+        em.persist(cpt);
+        em.persist(clt);
+
         request.setAttribute("msg", "Vous etes inscrit avec succes. connectez vous maintenant.");
 
         request.getRequestDispatcher("/view/formLogin.jsp").forward(request, response);
+        HibernateUtil.commitTransaction(em);
 
     }
 
@@ -97,4 +99,5 @@ public class Inscription extends HttpServlet {
     }// </editor-fold>
 
 }
+
 

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <%@ page import="com.ecommerce.metier.Produit" %>
 <%@ page import="com.ecommerce.metier.Image" %>
@@ -19,7 +19,7 @@
     <jsp:include page="header.jsp"></jsp:include>
     <%  HibernateUtil.beginTransaction();
         EntityManager s= HibernateUtil.getEntityManager();
-        List<Categorie> lc=s.createQuery("select c from Categorie c").getResultList();
+        List<Categorie> lc=s.createQuery("select c from Categorie c",Categorie.class).getResultList();
     %>
     <section>
         <div class="container">
@@ -70,12 +70,12 @@
                             if(mot==null){
                                 mot="";
                             }
-                            String req="Select p from Produit p where lower(p.libelle) like '%"+mot.toLowerCase()+"%'";
+                            String req="Select p from Produit p where  lower(p.libelle) like '%"+mot.toLowerCase()+"%'";
                             if(request.getParameter("idc")!=null){
                                 int idc=Integer.parseInt(request.getParameter("idc"));
                                 req+=" and p.categorie.idcat="+idc;
                             }
-                            Query q=s.createQuery(req);
+                            Query q=s.createQuery(req,Produit.class);
 
                             List<Produit>l=q.getResultList();
                             if(l.size()==0){
@@ -116,7 +116,8 @@
 
                         <%}
 
-                        }%>
+                        }
+                        HibernateUtil.commitTransaction(s);%>
 
                     </div><!--features_items-->
 
@@ -125,7 +126,6 @@
                 </div>
             </div>
         </div>
-        <% HibernateUtil.commitTransaction(s); %>
     </section>
 
 
