@@ -33,8 +33,6 @@
                 <div class="left-sidebar">
                     <h2>Categorie</h2>
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-
-
                         <%for(Categorie c : lc){	%>
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -44,8 +42,6 @@
                         <%}
                         %>
                     </div>  <!--/category-products-->
-
-
                     <div class="price-range"><!--price-range-->
                         <h2>Price Range</h2>
                         <div class="well text-center">
@@ -61,8 +57,8 @@
                 </div>
             </div>
 
-            <div class="col-sm-9 padding-right">
-                <div class="features_items"><!--features_items-->
+            <div class="col-sm-9  padding-right">
+                <div class="features_items "><!--features_items-->
                     <h2 class="title text-center">Nouvelle collection</h2>
 
                     <%
@@ -91,21 +87,18 @@
                                 </div>
 
                             </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
-
-                        <%
-
+                    <%
                         }
                         HibernateUtil.commitTransaction(s);%>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-<jsp:include page="view/footer.jsp"></jsp:include>
+    <jsp:include page="view/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -24,12 +24,12 @@
         <div class="breadcrumbs">
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li class="active">Check out</li>
+                <li class="active">Gérer mes commandes</li>
             </ol>
         </div><!--/breadcrums-->
 
         <div class="step-one">
-            <h2 class="heading">Step1</h2>
+            <h2 class="heading">Etape1</h2>
         </div>
 
         <form action="paiement.jsp" method="post">
@@ -66,6 +66,7 @@
                                 <input type="text" placeholder="Zip / Postal Code *" name="codepostale">
                                 <select name="pays">
                                     <option>-- Pays --</option>
+                                    <option value="France">France</option>
                                     <option value="Maroc">Maroc</option>
                                     <option value="United States">United States</option>
                                     <option value="Bangladesh">Bangladesh</option>
@@ -78,10 +79,10 @@
                                 </select>
                                 <select name="ville">
                                     <option>-- ville --</option>
-                                    <option value="Casablanca">Casablanca</option>
-                                    <option value="Rabat">Rabat</option>
-                                    <option value="Fes">Fes</option>
-                                    <option value="Tanger">Tanger</option>
+                                    <option value="Cergy">Cergy</option>
+                                    <option value="Paris">Paris</option>
+                                    <option value="Lile">Lile</option>
+                                    <option value="Nancy">Nancy</option>
 
                                 </select>
 
@@ -129,7 +130,7 @@
 
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="/CY_SHOP_war_exploded/images/cart/<%=p.getImagesByIdP().get(0).getUrl()%>" height="50px" width="50px"alt=""></a>
+                            <a href=""><img src="/CY_SHOP_war_exploded/images/produit/<%=p.getImagesByIdP().get(0).getUrl()%>" height="50px" width="50px"alt=""></a>
                         </td>
                         <td class="cart_description">
                             <h4><a href=""><%=p.getLibelle()%></a></h4>

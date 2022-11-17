@@ -18,5 +18,6 @@
     <mapping class="com.ecommerce.metier.Compte" resource="Compte.xml"></mapping>
     <mapping class="com.ecommerce.metier.Image" resource="Image.xml"></mapping>
     <mapping class="com.ecommerce.metier.Commentaire" resource="Commentaire.xml"></mapping>
+    <mapping class="com.ecommerce.metier.Carte" resource="Carte.xml"></mapping>
   </session-factory>
 </hibernate-configuration>

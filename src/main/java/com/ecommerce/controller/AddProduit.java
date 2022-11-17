@@ -2,9 +2,11 @@ package com.ecommerce.controller;
 
 import com.ecommerce.dao.HibernateSession;
 import com.ecommerce.metier.Categorie;
+import com.ecommerce.metier.Client;
 import com.ecommerce.metier.Image;
 import com.ecommerce.metier.Produit;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -93,14 +95,20 @@ public class AddProduit extends HttpServlet {
         p1.write(getServletContext().getRealPath("/images/produit/"+filename));
         Session s= HibernateSession.getSession();
         s.beginTransaction();
-        Categorie cat=(Categorie) s.get(Categorie.class, idcat);
+
+        Query q=s.createQuery("Select max(p.idP) from Produit p");
+        Query q2=s.createQuery("Select max(i.idimg) from Image i");
+        int idmax = (int) q.uniqueResult();
+        int idmax2 = (int) q2.uniqueResult();
+
+        Categorie cat= s.get(Categorie.class, idcat);
         List<Image> images=new ArrayList<Image>();
 
-        Produit p=new Produit(0, cat, libelle, marque, prix, description, frais, disponible,qte, new Date(), null, null, null, images);
-        Image img1=new Image(0,p,filename,true);
+        Produit p =new Produit(idmax+1, cat, libelle, marque, prix, description, frais, disponible,qte, new Date(), null, null, null, images);
+        Image img1 = new Image(idmax2+1,p,filename,true);
         images.add(img1);
         s.save(img1);
-        Part p2=request.getPart("img2");
+        /*Part p2=request.getPart("img2");
         if(p2!=null){
             filename=p2.getHeader("content-disposition");
             for(String s2:filename.split(";")){
@@ -142,10 +150,10 @@ public class AddProduit extends HttpServlet {
             images.add(img4);
             s.save(img4);
             p4.write(getServletContext().getRealPath("/images/produit/"+filename));
-        }
+        }*/
         s.save(p);
         s.getTransaction().commit();
-        request.setAttribute("msg", "produit ajoute avec succes");
+        request.setAttribute("msg", "produit ajouté avec succes");
         request.getRequestDispatcher("/view/formAddProduit.jsp").forward(request, response);
 
     }

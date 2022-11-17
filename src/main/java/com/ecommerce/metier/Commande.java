@@ -31,8 +31,11 @@ public class Commande {
 
     }
 
+
+
     @Id
     @Column(name = "idcmd")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdcmd() {
         return idcmd;
     }

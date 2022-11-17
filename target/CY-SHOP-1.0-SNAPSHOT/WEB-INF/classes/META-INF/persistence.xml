@@ -14,7 +14,8 @@
         <mapping-file>Lignecommande.xml</mapping-file>
         <mapping-file>Produit.xml</mapping-file>
         <mapping-file>Wishlist.xml</mapping-file>
-
+        <mapping-file>Carte.xml</mapping-file>
+        <mapping-file>Bloque.xml</mapping-file>
 
 
         <class>com.ecommerce.metier.Adresse</class>
@@ -27,6 +28,8 @@
         <class>com.ecommerce.metier.Lignecommande</class>
         <class>com.ecommerce.metier.Produit</class>
         <class>com.ecommerce.metier.Wishlist</class>
+        <class>com.ecommerce.metier.Carte</class>
+        <class>com.ecommerce.metier.Bloque</class>
 
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/commerce"/>

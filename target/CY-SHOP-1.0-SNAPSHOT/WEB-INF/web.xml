@@ -54,5 +54,14 @@
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>  <!--C'est ici qu'il faut écrire l'URL de votre servlet. -->
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Paiement</servlet-name>
+        <servlet-class>com.ecommerce.controller.Paiement</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Paiement</servlet-name>
+        <url-pattern>/Paiement</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

@@ -3,7 +3,7 @@
                  version="3.0">
 
     <entity class="com.ecommerce.metier.Client">
-        <table name="client" schema="commerce" catalog=""/>
+        <table name="client" schema="commerce" />
         <attributes>
             <id name="idc">
                 <column name="idc"/>
@@ -23,6 +23,9 @@
             <basic name="regDate">
                 <column name="regDate"/>
             </basic>
+            <basic name="droit">
+                <column name="droit"/>
+            </basic>
             <basic name="login">
                 <column name="login"/>
             </basic>
@@ -31,7 +34,6 @@
             </many-to-one>
             <one-to-many name="adressesByIdc" mapped-by="clientByIdc" target-entity="com.ecommerce.metier.Adresse"/>
             <one-to-many name="commandesByIdc" mapped-by="clientByIdc" target-entity="com.ecommerce.metier.Commande"/>
-            <one-to-many name="wishlistsByIdc" mapped-by="clientByIdc" target-entity="com.ecommerce.metier.Wishlist"/>
         </attributes>
     </entity>
 </entity-mappings>

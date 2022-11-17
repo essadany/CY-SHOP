@@ -1,10 +1,7 @@
 package com.ecommerce.metier;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Client {
@@ -17,6 +14,7 @@ public class Client {
     private String login;
     private Collection<Adresse> adressesByIdc;
     private Compte compteByLogin;
+    private String droit;
     private Set<Commande> commandesByIdc = new HashSet<Commande>(0);
     private Set<Wishlist> wishlistsByIdc = new HashSet<Wishlist>(0);
 
@@ -41,6 +39,7 @@ public class Client {
 
     @Id
     @Column(name = "idc")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getIdc() {
         return idc;
     }
@@ -98,38 +97,36 @@ public class Client {
     public void setRegDate(Date regDate) {
         this.regDate = regDate;
     }
+    @Basic
+    @Column(name = "droit")
+    public String getDroit() {
+        return droit;
+    }
 
-
+    public void setDroit(String droit) {
+        this.droit = droit;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof Client)) return false;
         Client client = (Client) o;
-
-        if (idc != client.idc) return false;
-        if (nom != null ? !nom.equals(client.nom) : client.nom != null) return false;
-        if (prenom != null ? !prenom.equals(client.prenom) : client.prenom != null) return false;
-        if (email != null ? !email.equals(client.email) : client.email != null) return false;
-        if (tel != null ? !tel.equals(client.tel) : client.tel != null) return false;
-        if (regDate != null ? !regDate.equals(client.regDate) : client.regDate != null) return false;
-        if (login != null ? !login.equals(client.login) : client.login != null) return false;
-
-        return true;
+        return idc == client.idc && Objects.equals(nom, client.nom) && Objects.equals(prenom, client.prenom) && Objects.equals(email, client.email) && Objects.equals(tel, client.tel) && Objects.equals(regDate, client.regDate) && Objects.equals(login, client.login) && Objects.equals(adressesByIdc, client.adressesByIdc) && Objects.equals(compteByLogin, client.compteByLogin) && Objects.equals(droit, client.droit) && Objects.equals(commandesByIdc, client.commandesByIdc) && Objects.equals(wishlistsByIdc, client.wishlistsByIdc);
     }
 
     @Override
     public int hashCode() {
-        int result = idc;
-        result = 31 * result + (nom != null ? nom.hashCode() : 0);
-        result = 31 * result + (prenom != null ? prenom.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (tel != null ? tel.hashCode() : 0);
-        result = 31 * result + (regDate != null ? regDate.hashCode() : 0);
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        return result;
+        return Objects.hash(idc, nom, prenom, email, tel, regDate, login, adressesByIdc, compteByLogin, droit, commandesByIdc, wishlistsByIdc);
     }
+
+
+
+
+
+
+
+
 
     @OneToMany(mappedBy = "clientByIdc")
     public Collection<Adresse> getAdressesByIdc() {

@@ -73,7 +73,7 @@
                             String req="Select p from Produit p where  lower(p.libelle) like '%"+mot.toLowerCase()+"%'";
                             if(request.getParameter("idc")!=null){
                                 int idc=Integer.parseInt(request.getParameter("idc"));
-                                req+=" and p.categorie.idcat="+idc;
+                                req+=" and p.categorieByIdcat.idcat="+idc;
                             }
                             Query q=s.createQuery(req,Produit.class);
 
@@ -104,12 +104,6 @@
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>

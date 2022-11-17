@@ -40,8 +40,8 @@
 				<div class="col-sm-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-							<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+							<li><a href="#"><i class="fa fa-phone"></i> +33 652143624</a></li>
+							<li><a href="#"><i class="fa fa-envelope"></i> cy-shop@gmail.com</a></li>
 						</ul>
 					</div>
 				</div>
@@ -67,39 +67,20 @@
 					<div class="logo pull-left">
 						<a href="/CY_SHOP_war_exploded/index.jsp"><img src="/CY_SHOP_war_exploded/images/home/logo.png" alt="" /></a>
 					</div>
-					<div class="btn-group pull-right">
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-								USA
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Canada</a></li>
-								<li><a href="#">UK</a></li>
-							</ul>
-						</div>
-
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-								DOLLAR
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Canadian Dollar</a></li>
-								<li><a href="#">Pound</a></li>
-							</ul>
-						</div>
-					</div>
 				</div>
 				<div class="col-sm-8">
 					<div class="shop-menu pull-right">
 						<ul class="nav navbar-nav">
-							<%if(clt!=null){%>
+							<%if(clt!=null && clt.getCompteByLogin().getRole().equals("client")){%>
 							<li><a href="/CY_SHOP_war_exploded/view/mescommandes.jsp"><i class="fa fa-user"></i>Bonjour <%=clt.getNom()%></a></li>
-
+							<li><a href="/CY_SHOP_war_exploded/view/checkout.jsp"><i class="fa fa-crosshairs"></i> Gérer mes commandes</a></li>
+							<%} else if(clt!=null && clt.getCompteByLogin().getRole().equals("manager")){%>
+							<li><a href="/CY_SHOP_war_exploded/view/mescommandes.jsp"><i class="fa fa-user"></i>Bonjour <%=clt.getNom()%></a></li>
+							<li><a href="/CY_SHOP_war_exploded/view/formAddProduit.jsp"><i class="fa-solid fa-cart-plus"></i>Ajouter un produit</a></li>
+							<li><a href="/CY_SHOP_war_exploded/view/adminPanel.jsp"><i class="fa fa-gears"></i>Gerer les droits</a></li>
 							<%}%>
-							<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-							<li><a href="/CY_SHOP_war_exploded/view/checkout.jsp"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+
+
 							<li><a href="/CY_SHOP_war_exploded/view/panier.jsp"><i class="fa fa-shopping-cart"></i> Panier</a></li>
 							<%if(clt==null){%>
 							<li><a href="/CY_SHOP_war_exploded/view/formLogin.jsp"><i class="fa fa-lock"></i> Login</a></li>
@@ -117,43 +98,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-9">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
 					<div class="mainmenu pull-left">
 						<ul class="nav navbar-nav collapse navbar-collapse">
-							<li><a href="/CY_SHOP_war_exploded/index.jsp" class="active">Home</a></li>
-							<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-								<ul role="menu" class="sub-menu">
-									<li><a href="/CY_SHOP_war_exploded/shop.html">Products</a></li>
-									<li><a href="/CY_SHOP_war_exploded/product-details.html">Product Details</a></li>
-									<li><a href="/CY_SHOP_war_exploded/checkout.html">Checkout</a></li>
-									<li><a href="/CY_SHOP_war_exploded/cart.html">Cart</a></li>
-									<li><a href="/CY_SHOP_war_exploded/login.html">Login</a></li>
-								</ul>
-							</li>
-							<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-								<ul role="menu" class="sub-menu">
-									<li><a href="/CY_SHOP_war_exploded/blog.html">Blog List</a></li>
-									<li><a href="/CY_SHOP_war_exploded/blog-single.html">Blog Single</a></li>
-								</ul>
-							</li>
-							<%if(clt!=null && clt.getCompteByLogin().getRole().equals("manager")){%>
-							<li class="dropdown"><a href="#">Panel de gestion<i class="fa fa-angle-down"></i></a>
-								<ul role="menu" class="sub-menu">
-
-									<li><a href="/CY_SHOP_war_exploded/view/formAddProduit.jsp">Ajouter produit</a></li>
-									<li><a href="/CY_SHOP_war_exploded/view/listArticle.jsp">Gerer les promotions</a></li>
-									<li><a href="/CY_SHOP_war_exploded/view/listecommandemanager.jsp">Gerer les commande</a></li>
-
-								</ul>
-							</li>
-							<%}%>
+							<li><a href="/CY_SHOP_war_exploded/index.jsp" class="active">Accueil</a></li>
 							<li><a href="/CY_SHOP_war_exploded/contact-us.html">Contact</a></li>
 						</ul>
 					</div>
